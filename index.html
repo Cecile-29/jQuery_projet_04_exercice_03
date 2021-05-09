@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="fr">
+
+<head>
+  <title>jQuery_projet_04_exercice_03</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="row justify-content-center">
+  <div class="container-fluid bg-primary row justify-content-center p-3">
+    <h1 class="col-12 p-4 text-center text-warning">jQuery_projet_04_exercice_03</h1>
+    <h2 class="col-9 p-4 text-center text-light">Créer quatre input : Nom; Prénom; Mail et téléphone. Vérifiez les saisies et appliquer un border rouge sur les inputs non valide et vert sur les valide.</h2>
+      <div class="row col-8 bg-warning rounded p-2 m-1 justify-content-center">
+        <div class="offset-1 col-10 row justify-content-center bg-secondary rounded m-4">
+          <p class="col-9 text-center text-light p-2 m-3">NOM :<p><input class="col-9 btn btn-outline-warning rounded text-warning p-2 m-3" type="text" name="name" id="name"/></p></p>
+          <p class="col-9 text-center text-light p-2 m-3">PRÉNOM :<p><input class="col-9 btn btn-outline-warning rounded text-warning p-2 m-3" type="text" name="firstName" id="firstName"/></p></p>
+          <p class="col-9 text-center text-light p-2 m-3">E-MAIL :<p><input class="col-9 btn btn-outline-warning rounded text-warning p-2 m-3" type="text" name="mail" id="mail"></p></p>
+          <p class="col-9 text-center text-light p-2 m-3">NUMÉRO DE TÉLÉPHONE : <p><input class="col-9 btn btn-outline-warning rounded text-warning p-2 m-3" type="text" name="phoneNumber" id="phoneNumber"</p></p>
+          <p class="col-9 text-center text-light p-2 m-3"><button class=" col-9 text-center text-warning btn btn-outline-light p-2 m-3" id="check" name="button">VÉRIFIEZ LES DONNÉES !</button></p>
+        </div>
+      </div>
+      </div>
+  <script src="https://code.jquery.com/jquery-3.6.0.js">
+  </script >
+  <script>
+  $(function(){
+    $('#check').click(function(){
+      let validFirstName = /^[A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕ][a-zàáâäãåąčćęèéêëėį']+([-][A-Z][a-z]+)?$/;
+      // => /^[A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖ][a-zàáâäãåąčćęèéêëėį']+([-][A-Z][a-z]+)?$/
+      let name = /^[A-ZÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕ][a-zàáâäãåąčćęèéêëėį']+([-][A-Z][a-z]+)?$/;
+      //"/^[a-zA-Z0-9_-]+@[a-zA-Z0-9-]{2,}[.][a-zA-Z]{2,3}$/;"
+      let mail = /^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,4}$/;
+      let phoneNumber = /^(06|07)[0-9]{8}$/;
+      if(validFirstName.test($('#firstName').val()) == false){
+        $('#firstName').css('border', '5px solid red');
+      }else {
+        $('#firstName').css('border', '5px solid green');
+      }
+      if(validFirstName.test($('#name').val()) == false){
+        $('#name').css('border', '5px solid red');
+      }else {
+        $('#name').css('border', '5px solid green');
+      }
+      if(mail.test($('#mail').val()) == false){
+        $('#mail').css('border', '5px solid red');
+      }else {
+        $('#mail').css('border', '5px solid green');
+      }
+      if(phoneNumber.test($('#phoneNumber').val()) == false){
+        $('#phoneNumber').css('border', '5px solid red');
+      }else {
+        $('#phoneNumber').css('border', '5px solid green');
+      }
+    });
+  });
+
+
+  </script>
+</body>
+
+</html>
